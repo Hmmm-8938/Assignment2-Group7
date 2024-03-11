@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Assignment #2: Abstract Classes, Event Driven Applications, and Exception Handling
+ * Group 7: Benjamin Mellott, Jaxson Burdett, Joshua Rustulka, Shannon Hilland
+ * Date: 03/10/2024
+ * This program allows users to book flights, and check their reservations.
+ * The flight will be booked and saved to a bin file.
+ -->
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment2.MainPage"
+             Title="Find Flights">       
+<!-- The front page has no functionality with the backend.-->
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="logo.png"
+                HeightRequest="250"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Traveless Logo" />
+
+            <Label
+                Text="Welcome to our new website!"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level5"
+                SemanticProperties.Description="Welcome to the website" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

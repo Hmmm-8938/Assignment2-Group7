@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Assignment #2: Abstract Classes, Event Driven Applications, and Exception Handling
+ * Group 7: Benjamin Mellott, Jaxson Burdett, Joshua Rustulka, Shannon Hilland
+ * Date: 03/10/2024
+ * This program allows users to book flights, and check their reservations.
+ * The flight will be booked and saved to a bin file.
+ -->
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment2.FlightFinder"
+             Title="Flight Finder"
+             Shell.NavBarIsVisible="false">
+
+    <ScrollView>
+        <!--  Spots in the UI which show all the information needed to reserve a flight which includes things such as flightCode all the way through name, reservationCode and more...-->
+        <VerticalStackLayout Margin="10">
+            <Label Text="Flight Finder" FontSize="30" HorizontalTextAlignment="Center" Margin="20"/>
+            <Grid RowDefinitions="*,*" ColumnDefinitions="*,*,*,*">
+                <Label Grid.Row="0" Grid.Column="0" Text="From:"/>
+                <Entry Grid.Row="1" Grid.Column="0" x:Name="origin" Placeholder="Any" Margin="0,0,5,0" />
+                <Label Grid.Row="0" Grid.Column="1" Text="To:"/>
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="destination" Placeholder="Any" Margin="0,0,5,0"/>
+                <Label Grid.Row="0" Grid.Column="2" Text="Day:"/>
+                <Entry Grid.Row="1" Grid.Column="2" x:Name="day" Placeholder="Any" Margin="0,0,5,0"/>
+                <Button Grid.Row="1" Grid.Column="3" Text="Find Flights" Clicked="FindFlights"/>
+            </Grid>
+            <Label Text="Flights" FontSize="30" HorizontalTextAlignment="Center" Margin="20"/>
+            <Picker 
+                x:Name="flightsPicker" 
+                Title="Please Select a Flight" 
+                SelectedIndexChanged="PickerSelectedIndexChanged"
+                ItemsSource="{Binding foundFlights}"/>
+            <Label Text="Reserve" FontSize="30" HorizontalTextAlignment="Center" Margin="20"/>
+            <Label Text="Flight Code:" />
+            <Entry Placeholder="Flight" x:Name="flightCode" IsReadOnly="True" />
+            <Label Text="Airline:" />
+            <Entry Placeholder="Airline" x:Name="airline" IsReadOnly="True" />
+            <Label Text="Day:" />
+            <Entry Placeholder="Day" x:Name="dayOfWeek" IsReadOnly="True" />
+            <Label Text="Time:" />
+            <Entry Placeholder="Time" x:Name="time" IsReadOnly="True" />
+            <Label Text="Cost:" />
+            <Entry Placeholder="0" x:Name="cost" IsReadOnly="True"/>
+            <Label Text="Name:" />
+            <Entry Placeholder="Name" x:Name="customerName"/>
+            <Label Text="Citizenship:" />
+            <Entry Placeholder="Citizenship" x:Name="customerCitizenship" />
+            <Button Text="Reserve" HorizontalOptions="Center" Clicked="Reserve" Margin="10" Padding="40,0" />
+            <Label x:Name="reservationCode" Text="" HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

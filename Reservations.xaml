@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Assignment #2: Abstract Classes, Event Driven Applications, and Exception Handling
+ * Group 7: Benjamin Mellott, Jaxson Burdett, Joshua Rustulka, Shannon Hilland
+ * Date: 03/10/2024
+ * This program allows users to book flights, and check their reservations.
+ * The flight will be booked and saved to a bin file.
+ -->
+
+<!--The Reservations XAML page that displays Search for a Reservation and three Labels and entries for reservation Code, airline and customer name.
+    A button and a picker being at the very bottom which when the button is clicked runs FindReservation and displays and matching reservations in the picker.-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment2.Reservations"
+             Title="Reservations">
+    <VerticalStackLayout Margin="10">
+        <Label Text="Search for a Reservation" FontSize="30" HorizontalTextAlignment="Center" Margin="20"/>
+        <Grid RowDefinitions="*,*, *, *" ColumnDefinitions="*,*,*, *">
+            <Label Grid.Row="0" Grid.Column="1" Text="Reservation Code: " HorizontalTextAlignment="End" VerticalTextAlignment="Center" Margin="0, 20"/>
+            <Entry Grid.Row="0" Grid.Column="2" x:Name="reservationCodeEntry" Placeholder="Reservation Code" Margin="0,0,5,0" />
+            <Label Grid.Row="1" Grid.Column="1" Text="Airline: " HorizontalTextAlignment="End" VerticalTextAlignment="Center" Margin="0, 20"/>
+            <Entry Grid.Row="1" Grid.Column="2" x:Name="airlineEntry" Placeholder="Airline" Margin="0,0,5,0"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="Customer Name: " HorizontalTextAlignment="End" VerticalTextAlignment="Center" Margin="0, 20"/>
+            <Entry Grid.Row="2" Grid.Column="2" x:Name="customerNameEntry" Placeholder="Customer Name" Margin="0,0,5,0"/>
+            <Button Grid.Row="3" Grid.Column="2" Text="Find Reservation" Clicked="FindReservations" Margin="10, 30"/>
+        </Grid>
+
+        <Picker 
+            x:Name="reservationPicker" 
+            Title="Please Select a Reservation" 
+            SelectedIndexChanged="PickerSelectedIndexChanged"
+            ItemsSource="{Binding foundReservations}"
+            Margin="0, 100"/>
+    </VerticalStackLayout>
+</ContentPage>
